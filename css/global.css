@@ -7,18 +7,31 @@
 
 }
 
+header, main, section, h1, ul, li, footer, #identidade, #mainContent, #linksContent, #menuHome{ 
+    display: flex;
+    width: 100%;
+}
+
+main{
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
 body{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100vw;
     height: 100vh;
     align-items: center;
 }
 header{
-    display: flex;
     flex-wrap: nowrap;
-    width: 100vw;
     background-color: rgb(86, 86, 86);
     justify-content: center;
     padding: .3rem;
@@ -26,59 +39,102 @@ header{
     color: #e3e3e3;
 }
 
+#pageTitle h1{
+    margin:.3rem;
+
+}
+#menuHome ul{
+    justify-content: right;
+    margin: .3rem;
+}
+#menuHome ul li{
+    font-size: .8rem;
+    width: fit-content;
+    margin-left: 1rem;
+    
+}
+
+
 main{
-    display: flex;
     padding: .5rem;
     align-items: baseline;
-    margin: 0 auto;
-    justify-content: space-around;
-
+    justify-content: center;
+    height:fit-content;
 }
 
-main, section, h1, footer{
-    width: 100%;
-}
 
+#mainContent{
+    width: 50vw;
+    margin: 0.1rem;
+}
 
 
 main section ul{
-    display: flex;
     flex-wrap: wrap;
 }
 
-main #mainContent ul li{
+
+
+#mainContent ul li{
     color:#e3e3e3;
     background-color:  rgb(86, 86, 86);
     margin:.5rem;
     padding: .5rem;
     border: 1px solid #e3e3e3;
     border-radius: .3rem;
+    width: fit-content;
 }
-main #mainContent{
-    width: 50%;
-}
-main #linksContent{
-    display: flex;
+
+#linksContent{
     flex-direction: column;
-    width: 30%;
+    width: 30vw;
     padding:1rem;
-   align-items: end;
+    align-items: end;
+    margin: .1rem;
 }
-main #linksContent ul{
+#linksContent ul{
     margin-top: .5rem;
-    display: flex;
     flex-direction: column;
 }
 
-main #linksContent ul li{
-    display: flex;
-    padding: .3rem;
-    justify-content: right;
-}
+
 
 footer{
-    display: flex;
-    justify-content: center;
+    font-size: .8rem;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 0;
+    position:static;
+    color: #e3e3e3;
+    background-color:rgb(86, 86, 86);
+    flex-direction: column;
     margin-top: 5rem;
+    padding-top: 1rem;
+}
+#identidade, #linksFooter{
+   justify-content: center;
+   height: fit-content;
+   
 }
 
+#linksFooter ul{
+    justify-content: center;
+
+}
+#linksFooter ul li{
+    justify-content: center;
+    width: fit-content;
+    padding: .5rem;
+    height: fit-content;
+}
+
+@media screen and (max-width:495px){
+    main, #mainContent, #linksContent, #linksContent ul li, #mainContent ul{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
