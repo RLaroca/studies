@@ -4,13 +4,15 @@ const arrayLinks = [
     {name: 'Instagram', path: 'https://www.instagram.com/rafael_laroca/'}
 ]
 
-const links = document.getElementsByClassName("socialLink");
+const links = document.getElementById("socialLink");
 console.log(links)
 
 arrayLinks.forEach((obj) => {
     links.innerHTML +=`
-    <li><a href="${obj.path}">${obj.name}</a></li>
+    <li><a href="${obj.path}" target='_blank'>${obj.name}</a></li>
     `
+
+    console.log(obj)
 
 })
 
