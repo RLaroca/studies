@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca Cep</title>
     <link rel="stylesheet" href="../css/global.css">
+    <style>
+        #buscaCep{
+            display: block;
+        }
+
+        #results{
+            margin: 3rem 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,6 +29,19 @@
             </div>
         </div>
     </header>
+
+    <main>
+        <div id="buscaCep">
+            <label>Digite seu CEP</label>
+            <input type="number" id="cep">
+            <button type="button" onclick="consulta()">Consultar</button>
+
+            <div id="results"></div>
+
+        </div>
+            
+        
+    </main>
 
     <footer style="position: fixed;">
         <div id="identidade">Rafael Laroca - 2024</div>
