@@ -51,8 +51,9 @@ async function searchAdress(){
     const response = await fetch(url);
     const data = await response.json();
     
-    if(data.erro || data[null]){
+    if(data.erro || data[0] == null){
         alert (`Endereço não encontrado`)
+        console.log(data);
     }else{
         
         let display = document.getElementById("results");
