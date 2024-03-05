@@ -44,12 +44,17 @@ async function searchAdress(){
     let street = document.getElementById("street").value;
     let city = document.getElementById("city").value;
     let url = `https://viacep.com.br/ws/${uf}/${city}/${street}/json/`;
+    if(street.length<=3 || city.length<=3){
+        alert(`Digite um endereço valido`)
+    }else{
 
     const response = await fetch(url);
     const data = await response.json();
-    if(data.erro){
+    
+    if(data.erro || data[null]){
         alert (`Endereço não encontrado`)
     }else{
+        
         let display = document.getElementById("results");
         
         data.forEach((ads) => display.innerHTML = 
@@ -61,5 +66,7 @@ async function searchAdress(){
             `
         )
         
+        
     }
+}
 }
