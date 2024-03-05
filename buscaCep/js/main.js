@@ -7,21 +7,59 @@ function consulta(){
         return
     }
     let url = `https://viacep.com.br/ws/${cep}/json/`;
-    fetch(url).then((response) => {
-        response.json().then((data) => {
-            console.log(data);
-            displayData(data);
-        })
-    })
+    fetch(url)
+    .then((response) => {response.json().then(displayData)})
 
     function displayData(dados){
         let display = document.getElementById("results");
-        display.innerHTML = `
-                                <p>${dados.logradouro}</p>
-                                <p>${dados.cep}</p>
-                                <p>${dados.bairro}</p>
-                                <p>${dados.localidade}</p>
-                            `
+        if(dados.erro){
+            display.innerHTML = `<p>Endereço não encontrado</p>`
+        }else
+        {        
+                display.innerHTML = `
+                                        <p>${dados.logradouro}</p>
+                                        <p>${dados.cep}</p>
+                                        <p>${dados.bairro}</p>
+                                        <p>${dados.localidade}</p>
+                                    `
+        }
     }
 
+}
+
+function addUf(){
+    const ufs = ["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"];
+    const ufList = document.getElementById("uf");
+
+    ufs.forEach((uf) => {
+        let item = `<option value="${uf}">${uf}</option>`
+        ufList.innerHTML += item;
+        
+    });
+}
+addUf();
+
+async function searchAdress(){
+    let uf = document.getElementById("uf").value;
+    let street = document.getElementById("street").value;
+    let city = document.getElementById("city").value;
+    let url = `https://viacep.com.br/ws/${uf}/${city}/${street}/json/`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    if(data.erro){
+        alert (`Endereço não encontrado`)
+    }else{
+        let display = document.getElementById("results");
+        
+        data.forEach((ads) => display.innerHTML = 
+            `
+            <p>${ads.cep}</p>
+            <p>${ads.logradouro}</p>
+            <p>${ads.localidade}</p>
+            <p>${ads.uf}</p>
+            `
+        )
+        
+    }
 }

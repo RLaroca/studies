@@ -13,6 +13,16 @@
         #results{
             margin: 3rem 0;
         }
+
+        #adresSearch{
+            display: flex;
+            margin: 1rem 0;
+
+        }
+
+        select{
+            margin: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +46,26 @@
             <input type="number" id="cep">
             <button type="button" onclick="consulta()">Consultar</button>
 
+            <div id="adresSearch">
+                <form action="">
+                    <label for="">UF</label>
+                    <select name="uf" id="uf">
+
+                    
+                    <input type="text" id="city" placeholder="cidade">
+
+                    
+                    <input type="text" id="street" placeholder="rua">
+                        
+                    
+                </br>
+                
+                <button type="button" onclick="searchAdress()">Consultar</button>
+
+
+                </form>
+            </div>
+
             <div id="results"></div>
 
         </div>
@@ -56,7 +86,7 @@
     
     
     <script src="js/main.js"></script>
-    <script src="js/sources.js"></script>
+    <script src="../js/sources.js"></script>
     
 </body>
 </html>
